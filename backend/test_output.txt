@@ -1,0 +1,52 @@
+--- STARTING TEST ---
+Request Error: AggregateError
+--- STARTING TEST ---
+Request Error: Error: connect ECONNREFUSED 127.0.0.1:5000
+--- STARTING TEST ---
+Upload Status: 200
+Upload Response: {"code":"510081","expiresAt":"2026-02-20T06:08:49.189Z","success":true,"printLimit":1}
+Code: 510081
+Print 1 Status: 200
+Print 1 Response: {"success":true,"printCount":1,"printLimit":1,"printsRemaining":0,"status":"PRINT_LIMIT_REACHED"}
+Print 2 Status: 410
+Print 2 Response: {"error":"Document expired"}
+--- STARTING TEST ---
+Upload Status: 200
+Upload Response: {"code":"349522","expiresAt":"2026-02-20T06:10:02.839Z","success":true,"printLimit":1}
+Code: 349522
+Print 1 Status: 200
+Print 1 Response: {"success":true,"printCount":1,"printLimit":1,"printsRemaining":0,"status":"PRINT_LIMIT_REACHED"}
+Print 2 Status: 400
+Print 2 Response: {"error":"Document not accessible: PRINT_LIMIT_REACHED"}
+--- STARTING TEST ---
+Upload Status: 200
+Upload Response: {"code":"726957","expiresAt":"2026-02-20T06:11:03.490Z","success":true,"printLimit":1}
+Code: 726957
+Print 1 Status: 200
+Print 1 Response: {"success":true,"printCount":1,"printLimit":1,"printsRemaining":0,"status":"PRINT_LIMIT_REACHED"}
+Print 2 Status: 410
+Print 2 Response: {"error":"Print limit reached"}
+--- STARTING TEST ---
+Upload Status: 200
+Upload Response: {"code":"413476","expiresAt":"2026-02-20T06:19:40.769Z","success":true,"printLimit":1}
+Code: 413476
+Print 1 Status: 200
+Print 1 Response: {"success":true,"printCount":1,"printLimit":1,"printsRemaining":0,"status":"PRINT_LIMIT_REACHED"}
+Print 2 Status: 410
+Print 2 Response: {"error":"Print limit reached"}
+--- STARTING TEST ---
+Upload Status: 200
+Upload Response: {"code":"677349","expiresAt":"2026-02-20T06:33:34.266Z","success":true,"printLimit":1}
+Code: 677349
+Print 1 Status: 500
+Print 1 Response: {"error":"Update failed"}
+Print 2 Status: 500
+Print 2 Response: {"error":"Update failed"}
+--- STARTING TEST ---
+Upload Status: 200
+Upload Response: {"code":"436698","expiresAt":"2026-02-20T06:34:38.926Z","success":true,"printLimit":1}
+Code: 436698
+Print 1 Status: 200
+Print 1 Response: {"success":true,"printCount":1,"printLimit":1,"printsRemaining":0,"status":"PRINT_LIMIT_REACHED"}
+Print 2 Status: 410
+Print 2 Response: {"error":"Print limit reached"}

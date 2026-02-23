@@ -1,0 +1,17 @@
+frontend@0.0.0 d:\Hackathon Pranu 2\Hackathon Pranu\frontend
+├─┬ framer-motion@12.23.26
+│ └── react@19.2.3 deduped
+├─┬ lucide-react@0.562.0
+│ └── react@19.2.3 deduped
+├─┬ react-dom@19.2.3
+│ └── react@19.2.3 deduped
+├─┬ react-leaflet@5.0.0
+│ ├─┬ @react-leaflet/core@3.0.0
+│ │ └── react@19.2.3 deduped
+│ └── react@19.2.3 deduped
+├─┬ react-router-dom@7.11.0
+│ ├─┬ react-router@7.11.0
+│ │ └── react@19.2.3 deduped
+│ └── react@19.2.3 deduped
+└── react@19.2.3
+

@@ -1,0 +1,32 @@
+﻿Testing Overpass API connectivity...
+Fetching shops for 19.076, 72.8777...
+[locationService] Fetching shops from https://overpass-api.de/api/interpreter (lat=19.076, lng=72.8777, radius=5000m)
+node : [locationService] Server error 504 at 
+https://overpass-api.de/api/interpreter, trying next...
+At line:1 char:1
++ node test_location_service.js 2>&1 | out-file 
+-FilePath output.log -E ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ([locationSe 
+   rvic... trying next...:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+[locationService] Failed to fetch from 
+https://overpass-api.de/api/interpreter: Server error: 
+504
+[locationService] Fetching shops from https://lz4.overpass-api.de/api/interpreter (lat=19.076, lng=72.8777, radius=5000m)
+[locationService] Fetch failed, retrying in 500ms... 
+(1/2)
+[locationService] Failed to fetch from 
+https://lz4.overpass-api.de/api/interpreter: This 
+operation was aborted
+[locationService] Fetching shops from https://z.overpass-api.de/api/interpreter (lat=19.076, lng=72.8777, radius=5000m)
+[locationService] Fetch failed, retrying in 500ms... 
+(1/2)
+[locationService] Failed to fetch from 
+https://z.overpass-api.de/api/interpreter: This 
+operation was aborted
+[locationService] All Overpass instances failed.
+[locationService] Live fetch failed: This operation was 
+aborted
+Test Failed: This operation was aborted

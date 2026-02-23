@@ -1,0 +1,424 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Grotesk:wght@300;500;700&display=swap');
+
+.no-select {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+/* Hide watermark when printing (even before print dialog) */
+body.printing .view-watermark {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+}
+
+@media print {
+
+  /* Hide UI elements */
+  .no-print {
+    display: none !important;
+  }
+
+  /* Hide watermark */
+  .view-watermark {
+    display: none !important;
+  }
+
+  /* Reset body */
+  body {
+    background: white !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Hide glass panel and other containers */
+  .glass-panel {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* Show print container - force visibility */
+  .print-viewer-container {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: auto !important;
+    background: white !important;
+    border: none !important;
+    border-radius: 0 !important;
+    margin: 0 !important;
+    padding: 20px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    visibility: visible !important;
+    overflow: visible !important;
+    page-break-inside: avoid !important;
+    page-break-after: avoid !important;
+  }
+
+  /* Override inline styles for print */
+  .print-viewer-container[style] {
+    overflow: visible !important;
+    height: auto !important;
+    background: white !important;
+    display: flex !important;
+  }
+
+  /* Ensure container has content */
+  .print-viewer-container:empty {
+    display: none !important;
+  }
+
+  /* Show image - CRITICAL - multiple selectors with highest specificity */
+  img.print-image,
+  #print-image-element,
+  .print-viewer-container>img,
+  .print-viewer-container img.print-image,
+  .print-viewer-container img,
+  img[src*="blob:"],
+  img[src*="data:image"] {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    width: auto !important;
+    height: auto !important;
+    max-width: calc(100% - 40px) !important;
+    max-height: calc(100vh - 40px) !important;
+    object-fit: contain !important;
+    margin: 0 auto !important;
+    page-break-inside: avoid !important;
+    page-break-after: avoid !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+    position: relative !important;
+    background: transparent !important;
+  }
+
+  /* Override any inline styles that might hide the image */
+  .print-viewer-container img[style] {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    width: auto !important;
+    height: auto !important;
+  }
+
+  /* Ensure image content is visible */
+  img {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+
+  /* Page setup */
+  @page {
+    margin: 0.5cm;
+    size: auto;
+  }
+
+  /* PDF iframe - show all pages */
+  .print-pdf-iframe {
+    position: relative !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 100vh !important;
+    border: none !important;
+    page-break-inside: auto !important;
+    page-break-after: auto !important;
+    overflow: visible !important;
+    display: block !important;
+  }
+
+  /* Image printing - ensure visibility */
+  .print-image {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    width: auto !important;
+    height: auto !important;
+    max-width: 100% !important;
+    max-height: calc(100vh - 40px) !important;
+    page-break-inside: avoid !important;
+    object-fit: contain !important;
+    position: relative !important;
+    margin: 0 auto !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    image-rendering: auto !important;
+  }
+
+  /* Ensure all images are visible in print */
+  img.print-image,
+  .print-viewer-container img,
+  .print-viewer-container .print-image,
+  .image-print-wrapper img,
+  .image-print-wrapper .print-image {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    width: auto !important;
+    height: auto !important;
+    max-width: 100% !important;
+    max-height: calc(100vh - 40px) !important;
+    object-fit: contain !important;
+    margin: 0 auto !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    image-rendering: auto !important;
+  }
+
+  /* Ensure image wrapper div is visible */
+  .print-viewer-container>div,
+  .print-viewer-container>div>img,
+  .image-print-wrapper,
+  .image-print-wrapper>img {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    background: white !important;
+  }
+
+  .image-print-wrapper {
+    display: flex !important;
+  }
+
+  .image-print-wrapper>img {
+    display: block !important;
+    flex-shrink: 0 !important;
+  }
+
+  /* Force image visibility */
+  @media print {
+    img {
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+  }
+
+  /* Ensure PDFs print correctly */
+  iframe {
+    page-break-inside: auto !important;
+    page-break-after: auto !important;
+    overflow: visible !important;
+    height: auto !important;
+    width: 100% !important;
+  }
+
+  /* Prevent clipping */
+  * {
+    overflow: visible !important;
+    max-width: 100% !important;
+  }
+
+  /* Ensure proper page breaks for multi-page content */
+  @page {
+    margin: 0;
+    size: auto;
+  }
+
+  /* Allow page breaks for PDF content */
+  .print-pdf-iframe {
+    page-break-inside: auto !important;
+  }
+}
+
+:root {
+  --bg-color: #050505;
+  --panel-bg: rgba(20, 20, 20, 0.7);
+  --neon-green: #00ff00;
+  --neon-purple: #7928ca;
+  --neon-pink: #ff00ff;
+  --neon-blue: #00f0ff;
+  --text-primary: #ffffff;
+  --text-secondary: #b0b0b0;
+  --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Space Grotesk', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: 'Outfit', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.glow-text {
+  text-shadow: 0 0 10px var(--neon-green), 0 0 20px var(--neon-green);
+}
+
+.neon-border {
+  border: 1px solid var(--neon-green);
+  box-shadow: 0 0 15px rgba(0, 255, 0, 0.3), inset 0 0 15px rgba(0, 255, 0, 0.1);
+}
+
+.glass-panel {
+  background: var(--panel-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+}
+
+button {
+  cursor: pointer;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  background: transparent;
+  color: white;
+  padding: 12px 24px;
+  border: 1px solid var(--neon-blue);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+button:hover:not(:disabled) {
+  background: var(--neon-blue);
+  color: black;
+  box-shadow: 0 0 20px var(--neon-blue);
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  border-color: #444;
+}
+
+input:not([type="checkbox"]):not([type="radio"]),
+select {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--glass-border);
+  color: white;
+  padding: 12px;
+  border-radius: 8px;
+  width: 100%;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  width: auto;
+  accent-color: var(--neon-blue);
+  cursor: pointer;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: var(--neon-purple);
+  box-shadow: 0 0 10px rgba(121, 40, 202, 0.4);
+}
+
+/* Animations */
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 5px var(--neon-green);
+  }
+
+  50% {
+    box-shadow: 0 0 20px var(--neon-green);
+  }
+
+  100% {
+    box-shadow: 0 0 5px var(--neon-green);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 2s infinite;
+}
+
+.bg-circuit {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-image:
+    radial-gradient(circle at 2px 2px, rgba(121, 40, 202, 0.1) 1px, transparent 0);
+  background-size: 40px 40px;
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Spinner Animation */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spinner {
+  animation: spin 1s linear infinite;
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Grid Background Animation */
+@keyframes gridMove {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 40px 40px;
+  }
+}
+
+.bg-circuit {
+  animation: gridMove 20s linear infinite;
+}
+
+/* Glassmorphism Enhancement */
+.glass-panel {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Parallax Background */
+.parallax-background {
+  will-change: transform;
+}
